@@ -1,5 +1,5 @@
 const { v4 } = require('uuid')
-const faker = require('faker')
+const { faker } = require('@faker-js/faker')
 const prisma = require('../../prisma')
 
 const categoryOne = {

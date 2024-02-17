@@ -1,5 +1,5 @@
 const request = require('supertest');
-const faker = require('faker');
+const { faker } = require('@faker-js/faker');
 const httpStatus = require('http-status');
 const app = require('../../src/app');
 const { admin, insertUsers, userOne } = require('../fixtures/user.fixture');
@@ -14,7 +14,7 @@ describe('Order routes', () =>{
         await insertUsers([admin, userOne])
         newOrder = {
             date: faker.date.recent(),
-            customerName: faker.name.findName(),
+            customerName: faker.person.fullName(),
             customerEmail: faker.internet.email(),
             userId: userOne.id,
         }
@@ -22,7 +22,7 @@ describe('Order routes', () =>{
         getOrder = {
             id: v4(),
             date: faker.date.recent(),
-            customerName: faker.name.findName(),
+            customerName: faker.person.fullName(),
             customerEmail: faker.internet.email(),
             userId: admin.id,
         }
@@ -87,7 +87,7 @@ describe('Order routes', () =>{
         test('Should return 200 and success update orders by orderId', async () => {
             await insertOrder([orderOne])
             newOrder = {
-                customerName: faker.name.findName()
+                customerName: faker.person.fullName()
             }
 
             const res = await request(app)

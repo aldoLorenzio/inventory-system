@@ -1,5 +1,5 @@
 const request = require('supertest');
-const faker = require('faker');
+const { faker } = require('@faker-js/faker');
 const httpStatus = require('http-status');
 const app = require('../../src/app');
 const { admin, insertUsers, userOne } = require('../fixtures/user.fixture');
@@ -12,7 +12,7 @@ describe('user routes', () =>{
     beforeEach(async () => {
         await insertUsers([admin, userOne])
         newUser = {
-            name: faker.name.findName(),
+            name: faker.person.fullName(),
             email: faker.internet.email(),
             password: 'password123',
             role: 'user'
@@ -40,7 +40,7 @@ describe('user routes', () =>{
 
         test('Should return 200 and success update users by userId', async () => {
             newUser = {
-                name: 'testUpdate'
+                name: faker.person.fullName()
             }
 
            const res =  await request(app)

@@ -4,7 +4,7 @@
   "description": "Inventory System Backend",
   "bin": "bin/createNodejsApp.js",
   "main": "src/index.js",
-  "repository": "https://github.com/aldoLorenzio/Week4-Backend-Server-API",
+  "repository": "https://github.com/aldoLorenzio/inventory-system",
   "author": "Aldo Lorenzio <aldolorenzio@gmail.com>",
   "license": "MIT",
   "engines": {

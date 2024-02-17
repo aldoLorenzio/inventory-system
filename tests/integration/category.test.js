@@ -1,5 +1,5 @@
 const request = require('supertest');
-const faker = require('faker');
+const { faker } = require('@faker-js/faker');
 const httpStatus = require('http-status');
 const moment = require('moment');
 const app = require('../../src/app');
@@ -80,7 +80,7 @@ describe('Category routes', () =>{
     test('should return 200 OK and success update category by ID', async() => {
         await insertCategory([categoryOne])
         newCategory = {
-            name: faker.random.word()
+            name: faker.animal.cat()
         }
         
         const res = await request(app)
