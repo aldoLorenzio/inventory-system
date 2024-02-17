@@ -49,10 +49,10 @@ const getUserById = async (userId) => {
 };
 
 const updateUserById = async (userId, userBody) => {
-  if(userBody.password){
+  if (userBody.password) {
     userBody.password = bcrypt.hashSync(userBody.password, 8);
   }
-  
+
   const updateUser = await prisma.user.update({
     where: {
       id: userId,

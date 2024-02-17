@@ -45,9 +45,9 @@ const updateUser = catchAsync(async (req, res) => {
 
   res.status(httpStatus.OK).json({
     status: httpStatus.OK,
-    message: "Update User success",
-    data: result
-  })
+    message: 'Update User success',
+    data: result,
+  });
 });
 
 const deleteUser = catchAsync(async (req, res) => {

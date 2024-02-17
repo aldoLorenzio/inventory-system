@@ -26,10 +26,7 @@ describe('Auth routes', () => {
     });
 
     test('should return 201 and successfully register user if request data is ok', async () => {
-      const res = await request(app)
-      .post('/v1/auth/register')
-      .send(newUser)
-      .expect(httpStatus.CREATED);
+      const res = await request(app).post('/v1/auth/register').send(newUser).expect(httpStatus.CREATED);
 
       const userData = res.body.data.userCreated;
 
@@ -63,7 +60,6 @@ describe('Auth routes', () => {
         createdAt: expect.anything(),
         updatedAt: expect.anything(),
       });
-
     });
 
     test('should return 400 error if email is invalid', async () => {
@@ -226,7 +222,7 @@ describe('Auth middleware', () => {
 
     await auth()(req, httpMocks.createResponse(), next);
 
-    expect(next).toHaveBeenCalledWith(expect.any(ApiError))
+    expect(next).toHaveBeenCalledWith(expect.any(ApiError));
     expect(next).toHaveBeenCalledWith(
       expect.objectContaining({ statusCode: httpStatus.UNAUTHORIZED, message: 'Please authenticate' })
     );

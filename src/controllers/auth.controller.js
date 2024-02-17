@@ -15,8 +15,8 @@ const register = catchAsync(async (req, res) => {
   res.status(httpStatus.CREATED).json({
     status: httpStatus.CREATED,
     message: 'Register Success',
-    data: {userCreated}
-   });
+    data: { userCreated },
+  });
 });
 
 const login = catchAsync(async (req, res) => {

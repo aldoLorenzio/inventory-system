@@ -44,17 +44,16 @@ const getOrderById = async (id) => {
 const updateOrderById = async (id, updateBody) => {
   const order = await prisma.order.findUnique({
     where: {
-      id
-    }
-  })
+      id,
+    },
+  });
 
-  if(!order) throw new ApiError(httpStatus.NOT_FOUND, 'OrderId not found')
+  if (!order) throw new ApiError(httpStatus.NOT_FOUND, 'OrderId not found');
 
   return prisma.order.update({
-    where: {id},
-    data: updateBody
-  })
-  
+    where: { id },
+    data: updateBody,
+  });
 };
 
 const deleteOrderById = async (orderId) => {

@@ -1,7 +1,7 @@
 const { PrismaClient } = require('@prisma/client');
 const { execSync } = require('child_process');
 const { join } = require('path');
-global.atob = require('atob')
+global.atob = require('atob');
 
 const generateDatabaseURL = () => {
   if (!process.env.DATABASE_URL) {
@@ -36,8 +36,8 @@ beforeEach(async () => {
   await prisma.orderItem.deleteMany();
   await prisma.order.deleteMany();
   await prisma.product.deleteMany();
+  await prisma.category.deleteMany();
   await prisma.user.deleteMany();
-  await prisma.category.deleteMany()
   await prisma.token.deleteMany();
 });
 

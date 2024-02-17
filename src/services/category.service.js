@@ -35,9 +35,9 @@ const getCategoryById = async (id) => {
     where: {
       id,
     },
-    include:{
-      products: true
-    }
+    include: {
+      products: true,
+    },
   });
 };
 
